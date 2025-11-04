@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Tokens alinhados ao seu layout ===== */
+:root {
+  --bg-top:    #1e78b3;   /* azul superior */
+  --bg-bottom: #186fa8;   /* azul inferior */
+  --brand:     #1e78b3;
+  --brand-contrast: #ffffff;
+
+  --surface:   transparent; /* usamos o gradiente no wrapper */
+  --card:      #17a2a8;     /* teal dos tiles/cartões */
+  --on-surface:#ffffff;     /* textos em branco no hero */
+  --on-muted:  rgba(255,255,255,0.9);
+  --accent:    #9b59b6;
+
+  /* Cor dos itens do MENU */
+  --menu-fg:   #17A2A8;
+
+  /* Alturas iguais (páginas != Home) */
+  --section-h-xs: 120px;
+  --section-h-sm: 150px;
+  --section-h-md: 150px;
+}
+
+@layer utilities {
+  .bg-app {
+    background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  }
+  .tile {
+    background-color: var(--card);
+    color: #fff;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  }
+  .text-muted   { color: var(--on-muted); }
+  .text-hero    { color: var(--on-surface); }
+  .text-onSurface { color: var(--on-surface); }
+  .bg-card      { background-color: var(--card); }
+  .bg-brand     { background-color: var(--brand); }
+  .text-onBrand { color: var(--brand-contrast); }
+  .text-menu    { color: var(--menu-fg); }
+}
+
+@layer components {
+  /* Botão teal com quadradinho azul dentro (como no print) */
+  .btn-teal-badge {
+    @apply inline-flex items-center justify-center rounded-lg;
+    background-color:#1e78b3;
+    padding: 0.35rem;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.1) inset, 0 1px 2px rgba(0,0,0,0.08);
+  }
+  .btn-teal-badge > span {
+    display: inline-block;
+    background-color: #1e78b3; /* quadrado azul escuro */
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.1rem 0.35rem;
+    border-radius: 0.2rem;
+    font-size: 0.85rem;
+  }
+
+  .card-white { @apply bg-white rounded-xl border border-gray-200 shadow; }
+
+  /* Sections com altura igual (páginas != Home) */
+  .section-eq { min-height: var(--section-h-xs); display: flex; flex-direction: column; }
+  @screen sm { .section-eq { min-height: var(--section-h-sm); } }
+  @screen md { .section-eq { min-height: var(--section-h-md); } }
+}
+
+.container-app { @apply max-w-6xl mx-auto px-6; }
