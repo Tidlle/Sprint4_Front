@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://sprint4-java-1.onrender.com/';
 
 export type Paciente = { id: number; nome: string; cpf: string; nascimento: string; telefone?: string };
 export type Medico   = { id: number; nome: string; crm: string; especialidade: string };
@@ -8,7 +8,7 @@ type HttpResp<T> = { ok: boolean; status: number; data?: T; errorText?: string }
 
 async function http<T = any>(path: string, init?: RequestInit): Promise<HttpResp<T>> {
   // evita // na URL
-  const base = (import.meta.env.VITE_API_URL || 'http://localhost:8080').replace(/\/+$/, '');
+  const base = (import.meta.env.VITE_API_URL || 'https://sprint4-java-1.onrender.com/').replace(/\/+$/, '');
   const p = path.startsWith('/') ? path : `/${path}`;
   const url = `${base}${p}`;
 
