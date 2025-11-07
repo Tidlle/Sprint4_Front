@@ -1,147 +1,85 @@
-# APP HC — Front-end (React + Vite + TypeScript + Tailwind)
+# APP HC – Sistema de Agendamento e Acompanhamento Médico
 
-## Integrantes 
-
-- Eduardo Martins - RM562259
-- Vitor Madrigrano - RM564191
-- Thiago Sposito - RM561694
-
-## Link do projeto
-
-- https://github.com/Tidlle/Sprint3-FrontEnd.git
-
-## Link para vídeo explicativo
-
-- https://www.youtube.com/watch?v=yNKjbU3l8yo
+> Projeto desenvolvido na **Sprint 4** das disciplinas **Front-End Design Engineering** e **Domain Driven Design Using Java** da **FIAP**.  
+> O objetivo é integrar um **front-end React + Vite + TypeScript** a uma **API Java (Quarkus)** conectada ao banco **Oracle FIAP**, promovendo uma aplicação funcional, responsiva e integrada.
 
 ---
 
-## Requisitos
-- **Node.js** 18 ou 20 (recomendado LTS)  
-- **npm** 9+
+## Objetivo do Projeto
 
-Verifique:
-```bash
-node -v
-npm -v
-```
+O **APP HC (Hospital das Clínicas)** é uma aplicação web voltada para **agendamento e gerenciamento de consultas médicas**, permitindo:
+- Cadastro e visualização de pacientes e médicos.  
+- Marcação e cancelamento de consultas.  
+- Acesso rápido às informações de cada agendamento.  
+- Integração completa com o backend hospedado no Render.  
 
----
-
-## Como rodar
-```bash
-npm install
-npm run dev
-```
-- Acesse: `http://localhost:5173`
+O foco está em oferecer uma experiência **responsiva**, **intuitiva** e **acessível** em todos os dispositivos.
 
 ---
 
-## Estrutura de pastas (organização atual)
-```
-src/
-  components/
-    Form/
-      Input.tsx
-      Textarea.tsx
-    Card.tsx
-    Header.tsx
-    MenuButton.tsx
-    NavBottom.tsx
-  data/
-  pages/
-    Chat.tsx
-    Contato.tsx
-    FAQ.tsx
-    Home.tsx
-    IntegranteDetalhe.tsx
-    Integrantes.tsx
-    Sobre.tsx
-    consultas/
-      MinhasConsultas.tsx
-      Detalhes.tsx
-      Marcar.tsx
-  routes/
-    AppRoutes.tsx
-  services/
-    api.ts
-  index.css
-  main.tsx
-  App.tsx
-  theme.ts
-public/
-  logo.png (ou logo.svg)
-```
+## Tecnologias Utilizadas
+
+### Front-End
+- **React** + **Vite** + **TypeScript**
+- **React Router DOM** (para rotas estáticas e dinâmicas)
+- **TailwindCSS** (estilização e responsividade)
+- **React Hook Form** (controle de formulários)
+- **Fetch API nativa** (integração com o backend)
+
+### Back-End
+- **Java 17**
+- **Quarkus Framework**
+- **JAX-RS (Jakarta RESTful Web Services)**
+- **Oracle Database (FIAP Cloud)**
+- **JDBC Manual (DriverManager)**
+- **Deploy Render**
 
 ---
 
-## Rotas principais
-| Caminho | Tela |
-|---|---|
-| `/` | Home (menu com 5 botões; “Quem Somos” ocupa 2 colunas) |
-| `/consultas` | **Minhas Consultas** (título, mês com botões teal e calendário) |
-| `/consultas/detalhes` | **Detalhes da(s) Consulta(s)** (cards brancos listando consultas) |
-| `/consultas/marcar` | **Marcar uma Consulta** (formulário) |
-| `/chat` | **Chat HC** (cartão com faixa teal, input e botão Enviar) |
-| `/faq`, `/sobre`, `/contato` | Páginas auxiliares |
-| `/integrantes`, `/integrantes/:id` | Lista e detalhe (exemplo) |
+## Integração API
 
-**Navegação fixa**  
-- `Header.tsx`: logo à esquerda e **menu** (hambúrguer) à direita. Título do popover branco e itens na cor `#17A2A8`.  
-- `NavBottom.tsx`: nav inferior **fixo** (`position: fixed`) com `z-50`. O `<main>` tem `pb-28 sm:pb-24` para não cobrir o conteúdo.
+A comunicação entre o front-end e o back-end é feita via **requisições HTTP REST**, utilizando os métodos:
+- **GET** – listar registros  
+- **POST** – inserir novos dados  
+- **PUT** – atualizar informações  
+- **DELETE** – remover registros  
+
+**URL base da API (Render):**
+- https://app-hc-java.onrender.com/
+
 
 ---
 
-## Tema e Identidade (1:1)
-Todas as cores/estilos ficam em **`src/index.css`** via _tokens_ CSS:
+## Integrantes
 
-```css
-:root {
-  --bg-top:    #1e78b3;   /* azul superior */
-  --bg-bottom: #186fa8;   /* azul inferior */
-  --card:      #17a2a8;   /* teal dos tiles / botões */
-  --on-surface:#ffffff;   /* textos brancos no herói */
-  --on-muted:  rgba(255,255,255,0.9);
-  --menu-fg:   #17A2A8;   /* cor dos itens do menu popover */
-}
-```
-Utilitários prontos que usam os tokens:
-- **Layout**: `bg-app` (gradiente), `container-app`  
-- **Cartões**: `tile` (teal), `card-white` (card branco)  
-- **Tipografia**: `text-hero`, `text-menu`  
-- **Consultas**: `btn-teal-badge` (botão teal com quadrado azul interno)  
-- **Alturas iguais** (páginas ≠ Home): `section-eq`
-
-**Fonte e Logo**  
-- Fonte: ative o `<link>` no `index.html` se usar Google Fonts.  
-- Logo: troque `public/logo.png|svg` e atualize o caminho no `Header.tsx` se necessário.
+| Nome | RM | Turma |
+|------|----|--------|
+| Eduardo Martins | 562259 | 1TDSA |
+| Vitor Madrigrano | 564191 | 1TDSA |
+| Thiago Sposito | 561694 | 1TDSA |
 
 ---
 
-## Integração com API (placeholder)
-`src/services/api.ts` usa `VITE_API_BASE`:
-```ts
-const BASE = import.meta.env.VITE_API_BASE || ''
-```
-Crie `.env` se precisar:
-```
-VITE_API_BASE=http://localhost:8080
-```
+## Deploys
+
+| Tipo | Plataforma | Link |
+|------|-------------|------|
+| **Front-End** | Vercel | https://hcapp-seven.vercel.app/ |
+| **Back-End (API)** | Render | https://sprint4-java-1.onrender.com |
+| **Repositório GitHub** | GitHub | https://github.com/Tidlle/Sprint4_Front |
 
 ---
 
-## Padronização de UI
-- Título de páginas: `text-3xl md:text-3xl font-extrabold text-white` com _drop shadow_ suave.  
-- Botões principais: fundo **teal** `#17a2a8`, texto branco, cantos arredondados.  
-- “Quem Somos” na Home: bloco ocupando **duas colunas** (col-span).
+## Como Rodar Localmente
 
----
+### Front-End
+- bash
+- git clone https://github.com/Tidlle/Sprint4_Front
+- cd AppHC
+- npm install
+- npm run dev
 
-## Roadmap curto (sugestões)
-- `/consultas` conectado à API (marcação, listagem e cancelamento).  
-- Estado do chat persistente e integração futura com backend.  
-- Testes de acessibilidade (teclado, foco no menu popover).  
-- Dark mode opcional via tokens.
-
----
-
+# Back-End (Java)
+- mvn quarkus:dev
+  
+A API ficará disponível em http://localhost:8080
