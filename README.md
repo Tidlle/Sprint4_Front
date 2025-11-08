@@ -60,6 +60,13 @@ A comunicação entre o front-end e o back-end é feita via **requisições HTTP
 
 ---
 
+## Links
+
+- Github: https://github.com/Tidlle/Sprint4_Front/
+- Vídeo explicativo: https://www.youtube.com/watch?v=o0KOqzsfnNA
+
+---
+
 ## Deploys
 
 | Tipo | Plataforma | Link |
@@ -78,6 +85,8 @@ A comunicação entre o front-end e o back-end é feita via **requisições HTTP
 - cd AppHC
 - npm install
 - npm run dev
+
+---
 
 # Back-End (Java)
 - mvn quarkus:dev
